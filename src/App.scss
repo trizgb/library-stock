@@ -1,0 +1,101 @@
+// * {
+//   margin: 0;
+// }
+
+.app {
+  background-color: white;
+}
+
+.app__header {
+  height: 50px;
+  width: 100%;
+  background-color: lightblue
+}
+
+.header__wrapper {}
+
+.logo__container {}
+
+.app__main {}
+
+.main__wrapper {
+  display: flex;
+}
+
+.books__container {
+  width: 60vw;
+}
+
+.books__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.books__list-item {
+  border: 1px solid black;
+}
+
+.features__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fas {}
+
+.fa-trash-alt
+
+.fa-edit
+
+.book__container {}
+
+.book__title {}
+
+.book__author {}
+
+.book__price {}
+
+.filters__container {
+  width: 40vw;
+  border: 1px solid black;
+  
+}
+
+.filters__wrapper {}
+
+.search__title-container {}
+
+.search__title-label {
+  display: block;
+
+}
+
+.search__field {}
+
+.button {}
+
+.search__button {} 
+
+.fa-search {}
+
+.filter__discount-container {}
+
+.filter__discount {}
+
+.filter__discount-label {
+  display: block;
+}
+
+.discount__field {}
+
+.discount__button {}
+
+.fa-percentage {}
+
+.app__footer {
+  height: 50px;
+  width: 100%;
+  background-color: lightblue
+}
+
+.footer__wrapper {}

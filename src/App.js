@@ -7,6 +7,13 @@ class App extends Component {
     super(props);
     this.state = {
       books: [],
+      editBook: {
+        "title": '',
+        "author": '',
+        "price": ''
+      },
+      searchBook: '',
+      priceDiscount: ''
     }
   }
 
@@ -23,9 +30,13 @@ class App extends Component {
           <div className="main__wrapper">
             <div className="books__container">
               <ul className="books__list">
-                {dataBooks.map(item => {
+                {dataBooks.map((item, index) => {
                   return (
-                    <li className="books__list-item">
+                    <li className="books__list-item" key={index}>
+                      <div className="features__container">
+                        <i className="fas fa-trash-alt"></i>
+                        <i className="fas fa-edit"></i>
+                      </div>
                       <div className="book__container">
                         <h2 className="book__title">{item.title}</h2>
                         <p className="book__author">{item.author}</p>
@@ -39,15 +50,16 @@ class App extends Component {
             <div className="filters__container">
               <div className="filters__wrapper">
                 <div className="search__title-container">
-                <label htmlFor="" className="search__title-label"></label>
-                <input type="text" className="search__field"/>
+                  <label htmlFor="" className="search__title-label">Search book</label>
+                  <input type="text" className="search__field" />
+                  <button className="button search__button"><i className="fas fa-search"></i></button>
                 </div>
                 <div className="filter__discount-container">
                   <form action="" className="filter__discount">
-                  <label htmlFor="" className="filter__discount-label"></label>
-                  <input type="number" className="discount__field"/>
+                    <label htmlFor="" className="filter__discount-label">Apply Discount</label>
+                    <input type="number" className="discount__field" />
+                    <button type="submit" className="button discount__button"><i className="fas fa-percentage"></i></button>
                   </form>
-                  <button className="discount__button">Apply</button>
                 </div>
               </div>
             </div>
