@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { dataBooks } from './services/DataBooks';
+import Main from './components/Main';
 import './App.scss';
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.searchBook();
+    this.getSearchBook();
   }
 
   getBooks() {
@@ -43,22 +44,16 @@ class App extends Component {
     });
   }
 
-  searchBook() {
+  getSearchBook() {
     const { books, searchBook } = this.state;
 
-    if (books === []) {
-      return (
-        <div><p>No data</p></div>
-      );
-    } else {
-      const searchedBooks = books.filter(item => {
-        const title = item.title;
+    const searchedBooks = books.filter(item => {
+      const title = item.title;
 
-        return (title.toUpperCase().includes(searchBook.toUpperCase()));
-      });
+      return (title.toUpperCase().includes(searchBook.toUpperCase()));
 
-      return searchedBooks;
-    }
+    });
+    return searchedBooks;
   }
 
   getDiscount(e) {
@@ -87,7 +82,6 @@ class App extends Component {
 
         return { ...item, price: finalPrice };
       });
-      console.log(discountedPrice);
 
       this.setState({
         books: discountedPrice
@@ -98,7 +92,7 @@ class App extends Component {
   }
 
   render() {
-    const booksList = this.searchBook();
+    const booksList = this.getSearchBook();
 
     return (
       <div className="app">
@@ -107,45 +101,12 @@ class App extends Component {
             <div className="logo__container"></div>
           </div>
         </header>
-        <main className="app__main">
-          <div className="main__wrapper">
-            <div className="books__container">
-              <ul className="books__list">
-                {booksList.map((item, index) => {
-                  return (
-                    <li className="books__list-item" key={index}>
-                      <div className="features__container">
-                        <i className="fas fa-trash-alt"></i>
-                        <i className="fas fa-edit"></i>
-                      </div>
-                      <div className="book__container">
-                        <h2 className="book__title">{item.title}</h2>
-                        <p className="book__author">{item.author}</p>
-                        <p className="book__price">{item.price}€</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <div className="filters__container">
-              <div className="filters__wrapper">
-                <div className="search__title-container">
-                  <label htmlFor="" className="search__title-label">Search book</label>
-                  <input type="text" className="search__field" onKeyUp={this.getSearch} />
-                  <button type="button" className="button search__button" onClick={this.getSearch}><i className="fas fa-search"></i></button>
-                </div>
-                <div className="filter__discount-container">
-                  <form action="" className="filter__discount">
-                    <label htmlFor="" className="filter__discount-label">Apply Discount</label>
-                    <input type="number" className="discount__field" onKeyUp={this.getDiscount} />
-                    <button type="button" className="button discount__button" onClick={this.applyDiscount}><i className="fas fa-percentage"></i></button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
+        <Main
+          booksList={booksList}
+          getSearch={this.getSearch}
+          getDiscount={this.getDiscount}
+          applyDiscount={this.applyDiscount}
+        />
         <footer className="app__footer">
           <div className="footer__wrapper"></div>
         </footer>
