@@ -1,62 +1,12 @@
 import React, { Component } from 'react';
+import { dataBooks } from './services/DataBooks';
 import './App.scss';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [
-        {
-          "title": "Goodnight Stories for Rebel Girls",
-          "author": "Elena Favilli",
-          "price": "18.95"
-        },
-        {
-          "title": "The Little Prince",
-          "author": "Antoine De Saint Exupery",
-          "price": "12.95"
-        },
-        {
-          "title": "The Boy in the Striped Pyjamas",
-          "author": "John Boyne",
-          "price": "7.50"
-        },
-        {
-          "title": "The Metamorphosis",
-          "author": "Franz Kafka",
-          "price": "4.95"
-        },
-        {
-          "title": "PHP, MySQL, JavaScript & HTML5 All-in-One For Dummies",
-          "author": "Steve Suhering, Janet Valade",
-          "price": "14.25"
-        },
-        {
-          "title": "Murder on the Orient Express",
-          "author": "Agatha Christie",
-          "price": "8.95"
-        },
-        {
-          "title": "Veronika Decides to Die",
-          "author": "Paulo Coelho",
-          "price": "10"
-        },
-        {
-          "title": "One Hundred Years of Solitude",
-          "author": "Gabriel Garcia Marquez",
-          "price": "7.45"
-        },
-        {
-          "title": "Herding Cats: A Sarah's Scribbles Collection",
-          "author": "Sarah Andersen",
-          "price": "8.95"
-        },
-        {
-          "title": "Brave New World",
-          "author": "Aldous Huxley",
-          "price": "6.50"
-        }
-      ],
+      books: [],
       editBook: {
         "title": '',
         "author": '',
@@ -72,7 +22,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.applyDiscount();
+    this.getBooks();
+  }
+
+  componentDidUpdate() {
+    this.searchBook();
+  }
+
+  getBooks() {
+    this.setState({
+      books: dataBooks
+    });
   }
 
   getSearch(e) {
@@ -112,24 +72,28 @@ class App extends Component {
   applyDiscount() {
     const { books, priceDiscount } = this.state;
 
-    const finalPrice = books.map(item => {
-      return parseFloat(item.price);
-    });
+    if (priceDiscount === '') {
+      const finalPrice = books.map(item => {
 
-    if (priceDiscount === 0) {
+        return parseFloat(item.price);
+      });
 
-      return (<p className="book__price">{finalPrice}€</p>);
+      return finalPrice;
     } else {
       const discountedPrice = books.map(item => {
         const discountOperation = parseFloat(item.price) * priceDiscount / 100;
         const totalPrice = parseFloat(item.price) - discountOperation;
         const finalPrice = totalPrice.toFixed(2);
-        console.log(finalPrice);
 
-        return finalPrice;
+        return { ...item, price: finalPrice };
+      });
+      console.log(discountedPrice);
+
+      this.setState({
+        books: discountedPrice
       });
 
-      return (<p className="book__price">{discountedPrice}€ </p>)
+      return discountedPrice;
     }
   }
 
