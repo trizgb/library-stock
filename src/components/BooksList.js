@@ -28,17 +28,18 @@ class BooksList extends Component {
             )}
           </ul>
         </div>
-      )
+      );
     }
     else {
-      return (<div className="books__list no-data"><p>No data</p></div>)
+      return (
+        <div className="books__list no-data"><p>No data</p></div>
+      );
     }
   }
 }
 
 BooksList.propTypes = {
   booksList: PropTypes.arrayOf(PropTypes.object)
-
-}
+};
 
 export default BooksList;
