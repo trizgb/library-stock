@@ -59,21 +59,25 @@ class App extends Component {
   getDiscount(e) {
     const queryDiscount = e.currentTarget.value;
 
-    this.setState({
-      priceDiscount: parseInt(queryDiscount)
-    });
+    if(queryDiscount !== '') {
+      this.setState({
+        priceDiscount: parseInt(queryDiscount)
+      });
+    } else {
+      this.setState({
+        priceDiscount: ''
+      });
+    }
   }
 
   applyDiscount() {
     const { books, priceDiscount } = this.state;
 
     if (priceDiscount === '') {
-      const finalPrice = books.map(item => {
-
-        return parseFloat(item.price);
+      this.setState({
+        books: dataBooks
       });
-
-      return finalPrice;
+      
     } else {
       const discountedPrice = books.map(item => {
         const discountOperation = parseFloat(item.price) * priceDiscount / 100;
@@ -86,8 +90,6 @@ class App extends Component {
       this.setState({
         books: discountedPrice
       });
-
-      return discountedPrice;
     }
   }
 
