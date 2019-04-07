@@ -150,6 +150,7 @@ class App extends Component {
         "price": '',
         "id": 0
       },
+      searchBook: ''
     });
   }
 
@@ -176,7 +177,7 @@ class App extends Component {
           <Route path="/edit/:id" render={props => (
             <EditBook
               match={props.match}
-              booksList={booksList}
+              booksListState={this.state.books}
               handleEdit={this.handleEdit}
               editBook={this.state.editBook}
               updateBook={this.updateBook}

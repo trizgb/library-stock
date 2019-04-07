@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 class EditBook extends Component {
   render() {
-    const { booksList, handleEdit, updateBook } = this.props;
+    const { booksListState, handleEdit, updateBook } = this.props;
     const bookId = this.props.match.params.id;
 
-    if (booksList.length > 0 && bookId <= booksList.length) {
-      const selectedBook = booksList[bookId];
+    if (booksListState.length > 0 && bookId <= booksListState.length) {
+      const selectedBook = booksListState[bookId];
       const { title, author, price } = selectedBook;
 
       return (
@@ -43,7 +43,7 @@ class EditBook extends Component {
       return (
         <Fragment>
           <p>No data</p>
-          <Link className="close-link" to="/">
+          <Link to="/">
             <i className="fas fa-times"></i>
           </Link>
         </Fragment>

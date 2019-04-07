@@ -15,8 +15,8 @@ class BooksList extends Component {
               return (
                 <li className="books__list-item" key={index}>
                   <div className="features__container">
-                    <Link to={`/edit/${index}`}>
-                      <i className="fas fa-edit" data-update={index} data-title={item.title} data-author={item.author} data-price={item.price} onClick={getInfoBook}></i>
+                    <Link to={`/edit/${item.id}`}>
+                      <i className="fas fa-edit" data-update={item.id} data-title={item.title} data-author={item.author} data-price={item.price} onClick={getInfoBook}></i>
                     </Link>
                     <i className="fas fa-trash-alt"></i>
                   </div>
