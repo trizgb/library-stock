@@ -2,6 +2,7 @@
 //   margin: 0;
 // }
 
+//>> APP
 .app {
   background-color: white;
 }
@@ -16,12 +17,29 @@
 
 .logo__container {}
 
+.app__footer {
+  height: 50px;
+  width: 100%;
+  background-color: lightblue
+}
+
+.footer__wrapper {}
+
+//>> MAIN COMPONENT
 .app__main {}
 
 .main__wrapper {
   display: flex;
 }
 
+.filters__container {
+  width: 40vw;
+  border: 1px solid black;
+}
+
+.filters__wrapper {}
+
+//>> APP BOOKSLIST
 .books__container {
   width: 60vw;
 }
@@ -55,30 +73,24 @@
 
 .book__price {}
 
-.filters__container {
-  width: 40vw;
-  border: 1px solid black;
-  
-}
+.no-data {}
 
-.filters__wrapper {}
+//>> EDITBOOK COMPONENT
 
+
+//>> SEARCHTITLE COMPONENT
 .search__title-container {}
 
 .search__title-label {
   display: block;
-
 }
-
-.search__field {}
-
-.button {}
-
-.search__button {} 
 
 .fa-search {}
 
-.filter__discount-container {}
+.search__field {}
+
+//>> DISCOUNT COMPONENT
+filter__discount-container {}
 
 .filter__discount {}
 
@@ -88,18 +100,16 @@
 
 .discount__field {}
 
+.button {}
+
 .discount__button {}
 
 .fa-percentage {}
 
-.app__footer {
-  height: 50px;
-  width: 100%;
-  background-color: lightblue
-}
 
-.footer__wrapper {}
 
-.no-data {
-  background-color: yellow;
-}
+
+
+
+
+

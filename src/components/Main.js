@@ -7,13 +7,14 @@ import PropTypes from 'prop-types';
 
 class Main extends Component {
   render() {
-    const { booksList, getSearch, getDiscount, applyDiscount } = this.props;
+    const { booksList, getSearch, getDiscount, applyDiscount, getInfoBook } = this.props;
 
     return (
       <main className="app__main">
         <div className="main__wrapper">
           <BooksList
             booksList={booksList}
+            getInfoBook={getInfoBook}
           />
           <div className="filters__container">
             <div className="filters__wrapper">
@@ -36,7 +37,8 @@ Main.propTypes = {
   booksList: PropTypes.arrayOf(PropTypes.object),
   getSearch: PropTypes.func.isRequired,
   getDiscount: PropTypes.func.isRequired,
-  applyDiscount: PropTypes.func.isRequired
+  applyDiscount: PropTypes.func.isRequired,
+  getInfoBook: PropTypes.func.isRequired
 };
 
 export default Main;
