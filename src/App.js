@@ -87,7 +87,7 @@ class App extends Component {
 
   // Aplica el descuento que se ha escrito en el discount field a través de una operación y setea el estado
   applyDiscount() {
-    const { books, priceDiscount } = this.state;
+    const { priceDiscount } = this.state;
 
     if (priceDiscount === '') {
       const originalPrice = dataBooks.map((item, index) => {
@@ -102,12 +102,12 @@ class App extends Component {
       });
 
     } else if (priceDiscount > 0 && priceDiscount <= 100) {
-      const discountedPrice = books.map(item => {
+      const discountedPrice = dataBooks.map((item, index) => {
         const discountOperation = parseFloat(item.price) * priceDiscount / 100;
         const totalPrice = parseFloat(item.price) - discountOperation;
         const finalPrice = totalPrice.toFixed(2);
 
-        return { ...item, price: finalPrice };
+        return { ...item, price: finalPrice, id: index };
       });
 
       this.setState({
