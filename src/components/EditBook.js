@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 class EditBook extends Component {
@@ -52,8 +52,10 @@ class EditBook extends Component {
   }
 }
 
-// EditBook.propTypes = {
-
-// };
+EditBook.propTypes = {
+  booksListState: PropTypes.arrayOf(PropTypes.object),
+  handleEdit: PropTypes.func.isRequired,
+  updateBook: PropTypes.func.isRequired
+};
 
 export default EditBook;

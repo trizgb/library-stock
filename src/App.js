@@ -25,6 +25,7 @@ class App extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.getInfoBook = this.getInfoBook.bind(this);
     this.updateBook = this.updateBook.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -88,11 +89,17 @@ class App extends Component {
     const { books, priceDiscount } = this.state;
 
     if (priceDiscount === '') {
-      this.setState({
-        books: dataBooks
+      const originalPrice = dataBooks.map((item, index) => {
+        const price = item.price
+
+        return { ...item, price: price, id: index }
       });
 
-    } else {
+      this.setState({
+        books: originalPrice
+      });
+
+    } else if (priceDiscount > 0 && priceDiscount <= 100) {
       const discountedPrice = books.map(item => {
         const discountOperation = parseFloat(item.price) * priceDiscount / 100;
         const totalPrice = parseFloat(item.price) - discountOperation;
@@ -104,6 +111,8 @@ class App extends Component {
       this.setState({
         books: discountedPrice
       });
+    } else {
+      return alert('Discount must be higher than 0 and same or lower than 100%')
     }
   }
 
@@ -114,8 +123,8 @@ class App extends Component {
 
     this.setState((prevState) => {
       const { editBook } = prevState;
-      const upadated = { ...editBook, [field]: currentValue };
-      return { editBook: upadated };
+      const updated = { ...editBook, [field]: currentValue };
+      return { editBook: updated };
     });
   }
 
@@ -154,6 +163,25 @@ class App extends Component {
     });
   }
 
+  handleDelete(e) {
+    const bookId = parseInt(e.currentTarget.getAttribute('data-update'));
+
+    this.setState((prevState) => {
+      const { books } = prevState;
+      const bookIndexInArray = books.findIndex(book => book.id === bookId);
+
+      if (bookIndexInArray !== -1) {
+        books.splice(bookIndexInArray, 1);
+      }
+
+      const booksArr = books.map((item, index) => {
+        return { ...item, id: index };
+      });
+
+      return { books: booksArr };
+    });
+  }
+
   render() {
     const booksList = this.getSearchBook();
 
@@ -172,6 +200,7 @@ class App extends Component {
               getDiscount={this.getDiscount}
               applyDiscount={this.applyDiscount}
               getInfoBook={this.getInfoBook}
+              handleDelete={this.handleDelete}
             />
           )} />
           <Route path="/edit/:id" render={props => (

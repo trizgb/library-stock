@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 class BooksList extends Component {
   render() {
-    const { booksList, getInfoBook } = this.props;
+    const { booksList, getInfoBook, handleDelete } = this.props;
 
     if (booksList.length > 0) {
       return (
@@ -18,7 +18,7 @@ class BooksList extends Component {
                     <Link to={`/edit/${item.id}`}>
                       <i className="fas fa-edit" data-update={item.id} data-title={item.title} data-author={item.author} data-price={item.price} onClick={getInfoBook}></i>
                     </Link>
-                    <i className="fas fa-trash-alt"></i>
+                    <i className="fas fa-trash-alt" data-update={item.id} onClick={handleDelete}></i>
                   </div>
                   <div className="book__container">
                     <h2 className="book__title">{item.title}</h2>
@@ -42,7 +42,9 @@ class BooksList extends Component {
 }
 
 BooksList.propTypes = {
-  booksList: PropTypes.arrayOf(PropTypes.object)
+  booksList: PropTypes.arrayOf(PropTypes.object),
+  getInfoBook: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired
 };
 
 export default BooksList;
