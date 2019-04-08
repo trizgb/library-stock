@@ -16,7 +16,8 @@ class App extends Component {
         "price": ''
       },
       searchBook: '',
-      priceDiscount: ''
+      priceDiscount: '',
+      colorDiscount: ''
     }
 
     this.getSearch = this.getSearch.bind(this);
@@ -96,7 +97,8 @@ class App extends Component {
       });
 
       this.setState({
-        books: originalPrice
+        books: originalPrice,
+        colorDiscount: ''
       });
 
     } else if (priceDiscount > 0 && priceDiscount <= 100) {
@@ -109,7 +111,8 @@ class App extends Component {
       });
 
       this.setState({
-        books: discountedPrice
+        books: discountedPrice,
+        colorDiscount: 'red'
       });
     } else {
       return alert('Discount must be higher than 0 and same or lower than 100%')
@@ -201,6 +204,7 @@ class App extends Component {
               applyDiscount={this.applyDiscount}
               getInfoBook={this.getInfoBook}
               handleDelete={this.handleDelete}
+              colorDiscount={this.state.colorDiscount}
             />
           )} />
           <Route path="/edit/:id" render={props => (

@@ -24,18 +24,18 @@ class EditBook extends Component {
             <form action="" className="form__container">
               <div className="form__title-container">
                 <label htmlFor="form-title" className="form__title-label">title</label>
-                <input type="text" id="form-title" className="form__title" data-field="title" defaultValue={title} onKeyUp={handleEdit} />
+                <input type="text" id="form-title" className="input form__title" data-field="title" defaultValue={title} onKeyUp={handleEdit} />
               </div>
               <div className="form__author-container">
                 <label htmlFor="form-author" className="form__author-label">author</label>
-                <input type="text" id="form-author" className="form__author" data-field="author" defaultValue={author} onKeyUp={handleEdit} />
+                <input type="text" id="form-author" className="input form__author" data-field="author" defaultValue={author} onKeyUp={handleEdit} />
               </div>
               <div className="form__price-container">
                 <label htmlFor="form-price" className="form__price-label">price</label>
-                <input type="number" id="form-price" className="form__price" data-field="price" defaultValue={price} onKeyUp={handleEdit} />
+                <input type="number" id="form-price" className="input form__price" data-field="price" defaultValue={price} onKeyUp={handleEdit} />
               </div>
             </form>
-            <Link to="/"><input className="form__submit-edit" type="submit" value="Edit" onClick={updateBook} /></Link>
+            <Link to="/" className="form__link-submit"><input className="form__submit-edit" type="submit" value="Edit" onClick={updateBook} /></Link>
           </div>
         </div>
       );

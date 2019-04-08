@@ -26,58 +26,18 @@
 
 .footer__wrapper {}
 
+
+// Commons
+@import './styles/commons';
+
 //>> MAIN COMPONENT
-.app__main {}
-
-.main__wrapper {
-  display: flex;
-}
-
-.filters__container {
-  width: 40vw;
-  border: 1px solid black;
-}
-
-.filters__wrapper {}
+@import './styles/main';
 
 //>> APP BOOKSLIST
-.books__container {
-  width: 60vw;
-}
-
-.books__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.books__list-item {
-  border: 1px solid black;
-}
-
-.features__container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.fas {}
-
-.fa-trash-alt
-
-.fa-edit
-
-.book__container {}
-
-.book__title {}
-
-.book__author {}
-
-.book__price {}
-
-.no-data {}
+@import './styles/bookslist';
 
 //>> EDITBOOK COMPONENT
-
+@import './styles/editbook';
 
 //>> SEARCHTITLE COMPONENT
 .search__title-container {}
@@ -91,7 +51,7 @@
 .search__field {}
 
 //>> DISCOUNT COMPONENT
-filter__discount-container {}
+.filter__discount-container {}
 
 .filter__discount {}
 

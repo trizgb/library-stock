@@ -1,0 +1,94 @@
+.app__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__wrapper {
+  margin: 50px auto;
+  box-sizing: border-box;
+  width: 400px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px 1px rgba(240,240,240,1);
+  padding-bottom: 40px;
+}
+
+.fa-times {}
+
+.form__heading {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form__container {
+  box-sizing: border-box;
+  outline: none;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 0 25px;
+}
+
+.input {
+  box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ddd;
+	background: transparent;
+  font-size: 14px;
+  height: 30px;
+}
+
+.form__title-container {
+  margin-bottom: 10px;
+}
+
+.form__title-label {
+}
+
+.form__title {}
+
+.form__author-container {
+  margin-bottom: 10px;
+}
+
+.form__author-label {}
+
+.form__author {}
+
+.form__price-container {
+  margin-bottom: 10px;
+}
+
+.form__price-label {}
+
+.form__price {}
+
+
+.form__link-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+.form__submit-edit {
+  width: 200px;
+  height: 30px;
+	background-color: #68a3ed;
+  border: 1px solid #68a3ed;
+  border-radius: 20px;
+	cursor: pointer;
+	color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+}

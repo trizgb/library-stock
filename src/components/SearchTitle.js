@@ -8,7 +8,7 @@ class SearchTitle extends Component {
     return (
       <div className="search__title-container">
         <label htmlFor="" className="search__title-label">Search book<i className="fas fa-search"></i></label>
-        <input type="text" className="search__field" onKeyUp={getSearch} />
+        <input type="text" className="search__field" placeholder={"Title"} onKeyUp={getSearch} />
       </div>
     );
   }
