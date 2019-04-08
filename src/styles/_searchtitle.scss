@@ -1,0 +1,24 @@
+// .search__title-container {}
+
+.search__title-label {
+  padding: 10px 0;
+  display:block;
+}
+
+.fa-search {
+  position: absolute;
+  right: 30px;
+  top: 65px;
+  color: #bcbcbc;
+}
+
+.search__field {
+  box-sizing: border-box;
+	outline: none;
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ddd;
+	background: transparent;
+  font-size: 14px;
+  height: 30px;
+}

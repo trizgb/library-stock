@@ -1,4 +1,5 @@
 .app__main {
+  width: 100%;
 }
 
 .main__wrapper {
@@ -7,8 +8,15 @@
 }
 
 .filters__container {
-  width: 40vw;
-  border: 1px solid black;
+  position: fixed;
+  box-sizing: border-box;
+  right: 20px;
+  top: 10px;
+  width: 30vw;
+  height: 230px;
+  border: 1px solid #f0f0f0;
 }
 
-.filters__wrapper {}
+.filters__wrapper {
+  margin: 20px 20px;
+}

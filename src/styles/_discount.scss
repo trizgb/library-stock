@@ -1,0 +1,43 @@
+.filter__discount-container {
+  margin-top: 20px;
+}
+
+// .filter__discount {}
+
+.filter__discount-label {
+  display: block;
+  padding: 10px 0;
+}
+
+.discount__wraper-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount__field {
+  box-sizing: border-box;
+	outline: none;
+	width: 70%;
+	padding: 5px;
+	border: 1px solid #ddd;
+	background: transparent;
+  font-size: 14px;
+  height: 30px;
+}
+
+.discount__button {
+  width: 20%;
+  height: 30px;
+
+	background-color: #68a3ed;
+  border: 1px solid #68a3ed;
+	cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.fa-percentage {
+  color: white;
+}

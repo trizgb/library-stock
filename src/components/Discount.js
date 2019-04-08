@@ -10,8 +10,10 @@ class Discount extends Component {
       <div className="filter__discount-container">
         <form action="" className="filter__discount">
           <label htmlFor="" className="filter__discount-label">Apply Discount</label>
-          <input type="number" className="discount__field" onKeyUp={getDiscount} />
-          <button type="button" className="button discount__button" onClick={applyDiscount}><i className="fas fa-percentage"></i></button>
+          <div className="discount__wraper-field">
+            <input type="number" className="discount__field" onChange={getDiscount} />
+            <button type="button" className="discount__button" onClick={applyDiscount}><i className="fas fa-percentage"></i></button>
+          </div>
         </form>
       </div>
     );

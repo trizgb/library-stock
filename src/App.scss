@@ -1,31 +1,5 @@
-// * {
-//   margin: 0;
-// }
-
-//>> APP
-.app {
-  margin: 0;
-  background-color: white;
-}
-
-.app__header {
-  height: 50px;
-  width: 100%;
-  background-color: lightblue
-}
-
-.header__wrapper {}
-
-.logo__container {}
-
-.app__footer {
-  height: 50px;
-  width: 100%;
-  background-color: lightblue
-}
-
-.footer__wrapper {}
-
+//>> APP COMPONENT
+@import './styles/app';
 
 // Commons
 @import './styles/commons';
@@ -36,37 +10,14 @@
 //>> APP BOOKSLIST
 @import './styles/bookslist';
 
-//>> EDITBOOK COMPONENT
-@import './styles/editbook';
-
 //>> SEARCHTITLE COMPONENT
-.search__title-container {}
-
-.search__title-label {
-  display: block;
-}
-
-.fa-search {}
-
-.search__field {}
+@import './styles/searchtitle';
 
 //>> DISCOUNT COMPONENT
-.filter__discount-container {}
+@import './styles/discount';
 
-.filter__discount {}
-
-.filter__discount-label {
-  display: block;
-}
-
-.discount__field {}
-
-.button {}
-
-.discount__button {}
-
-.fa-percentage {}
-
+//>> EDITBOOK COMPONENT
+@import './styles/editbook';
 
 
 

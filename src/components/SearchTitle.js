@@ -7,8 +7,8 @@ class SearchTitle extends Component {
     const { getSearch } = this.props;
     return (
       <div className="search__title-container">
-        <label htmlFor="" className="search__title-label">Search book<i className="fas fa-search"></i></label>
-        <input type="text" className="search__field" placeholder={"Title"} onKeyUp={getSearch} />
+        <label htmlFor="" className="search__title-label">Search book</label>
+        <input type="text" className="search__field" placeholder={"Title"} onKeyUp={getSearch} /><i className="fas fa-search"></i>
       </div>
     );
   }
