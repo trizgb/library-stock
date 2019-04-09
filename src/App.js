@@ -205,6 +205,7 @@ class App extends Component {
               getInfoBook={this.getInfoBook}
               handleDelete={this.handleDelete}
               colorDiscount={this.state.colorDiscount}
+              priceDiscount={this.state.priceDiscount}
             />
           )} />
           <Route path="/edit/:id" render={props => (

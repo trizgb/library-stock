@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 class Main extends Component {
   render() {
-    const { booksList, getSearch, getDiscount, applyDiscount, getInfoBook, handleDelete, colorDiscount } = this.props;
+    const { booksList, getSearch, getDiscount, applyDiscount, getInfoBook, handleDelete, colorDiscount, priceDiscount } = this.props;
 
     return (
       <main className="app__main">
@@ -26,6 +26,7 @@ class Main extends Component {
               <Discount
                 getDiscount={getDiscount}
                 applyDiscount={applyDiscount}
+                priceDiscount={priceDiscount}
               />
             </div>
           </div>
